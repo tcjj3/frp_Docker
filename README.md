@@ -1,5 +1,4 @@
 # frp_Docker
-# ngrok_Docker
 Docker for setup websites, using [**frp**](https://gofrp.org/).
 
 
@@ -56,9 +55,17 @@ In these case, the server is from "[**`Free FRP`**](https://freefrp.net/)", you 
 
 The `PROTOCOL` environment variable is "`http`" (or can be "`httponly`", "`https`", "`https2http`", "`tcp`", "`udp`" or "`unix_domain_socket`").
 <br>
+When `PROTOCOL` environment variable is "`http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with both `HTTP` and `HTTPS` protocols.
+<br>
+When `PROTOCOL` environment variable is "`https2http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
+<br>
+When `PROTOCOL` environment variable is "`httponly`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTP` protocol.
+<br>
+When `PROTOCOL` environment variable is "`https`", it will use `HTTPS` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
+<br>
 <br>
 
-If `PROTOCOL` environment variable is "`http`", just set `SUBDOMAIN` environment variable to the name, or set `CUSTOM_DOMAINS` environment variable to your domain(s).
+If `PROTOCOL` environment variable is "`http`", "`httponly`", "`https`" or "`https2http`", just set `SUBDOMAIN` environment variable to the name for the subdomain, or set `CUSTOM_DOMAINS` environment variable to your domain(s).
 <br>
 <br>
 
@@ -69,8 +76,10 @@ If `PROTOCOL` environment variable is "`tcp`" or "`udp`", your should set `REMOT
 If `PROTOCOL` environment variable is "`unix_domain_socket`", your should set `REMOTE_PORT` and `UNIX_PATH` environment variables, instead of "`SUBDOMAIN`", "`CUSTOM_DOMAINS`", "`LOCAL_IP`" or "`LOCAL_PORT`" environment variables.
 <br>
 <br>
+<br>
 
-For some examples:
+
+Here are some examples:
 <br>
 <br>
 TCP forward:

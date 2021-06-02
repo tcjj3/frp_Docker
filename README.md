@@ -55,13 +55,13 @@ In these case, the server is from "[**`Free FRP`**](https://freefrp.net/)", you 
 
 The `PROTOCOL` environment variable is "`http`" (or can be "`httponly`", "`https`", "`https2http`", "`tcp`", "`udp`" or "`unix_domain_socket`").
 <br>
-When `PROTOCOL` environment variable is "`http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with both `HTTP` and `HTTPS` protocols.
+(1) When `PROTOCOL` environment variable is "`http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with both `HTTP` and `HTTPS` protocols.
 <br>
-When `PROTOCOL` environment variable is "`https2http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
+(2) When `PROTOCOL` environment variable is "`https2http`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
 <br>
-When `PROTOCOL` environment variable is "`httponly`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTP` protocol.
+(3) When `PROTOCOL` environment variable is "`httponly`", it will use `HTTP` protocol to connect your `local port`, you can visit your website with only `HTTP` protocol.
 <br>
-When `PROTOCOL` environment variable is "`https`", it will use `HTTPS` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
+(4) When `PROTOCOL` environment variable is "`https`", it will use `HTTPS` protocol to connect your `local port`, you can visit your website with only `HTTPS` protocol.
 <br>
 <br>
 

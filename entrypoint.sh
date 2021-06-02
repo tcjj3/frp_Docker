@@ -60,7 +60,7 @@ echo "" >> ${Frpc_Conf_Path}
 tmp_CUSTOM_DOMAINS=`echo "${CUSTOM_DOMAINS}" | sed "s/\./_/gi"`
 
 
-if [ "$PROTOCOL" -eq "https" ]; then
+if [ "$PROTOCOL" == "https" ]; then
 echo "[${SUBDOMAIN}_${Domain_Infos}_${tmp_CUSTOM_DOMAINS}_https]" >> ${Frpc_Conf_Path}
 echo "type = https" >> ${Frpc_Conf_Path}
 echo "local_ip = ${LOCAL_IP}" >> ${Frpc_Conf_Path}
@@ -72,7 +72,7 @@ echo "" >> ${Frpc_Conf_Path}
 fi
 
 
-if [ "$PROTOCOL" -eq "http" ] || [ "$PROTOCOL" -eq "httponly" ]; then
+if [ "$PROTOCOL" == "http" ] || [ "$PROTOCOL" == "httponly" ]; then
 echo "[${SUBDOMAIN}_${Domain_Infos}_${tmp_CUSTOM_DOMAINS}_http]" >> ${Frpc_Conf_Path}
 echo "type = http" >> ${Frpc_Conf_Path}
 echo "local_ip = ${LOCAL_IP}" >> ${Frpc_Conf_Path}
@@ -84,7 +84,7 @@ echo "" >> ${Frpc_Conf_Path}
 fi
 
 
-if [ "$PROTOCOL" -eq "https2http" ] || [ "$PROTOCOL" -eq "http" ]; then
+if [ "$PROTOCOL" == "https2http" ] || [ "$PROTOCOL" == "http" ]; then
 echo "[${SUBDOMAIN}_${Domain_Infos}_${tmp_CUSTOM_DOMAINS}_https2http]" >> ${Frpc_Conf_Path}
 echo "type = https" >> ${Frpc_Conf_Path}
 echo "" >> ${Frpc_Conf_Path}
@@ -107,7 +107,7 @@ echo "" >> ${Frpc_Conf_Path}
 fi
 
 
-if [ "$PROTOCOL" -eq "tcp" ] || [ "$PROTOCOL" -eq "udp" ]; then
+if [ "$PROTOCOL" == "tcp" ] || [ "$PROTOCOL" == "udp" ]; then
 echo "[${Domain_Infos}_${REMOTE_PORT}_${PROTOCOL}]" >> ${Frpc_Conf_Path}
 echo "type = ${PROTOCOL}" >> ${Frpc_Conf_Path}
 echo "local_ip = ${LOCAL_IP}" >> ${Frpc_Conf_Path}
@@ -125,7 +125,7 @@ echo "" >> ${Frpc_Conf_Path}
 fi
 
 
-if [ "$PROTOCOL" -eq "unix_domain_socket" ]; then
+if [ "$PROTOCOL" == "unix_domain_socket" ]; then
 echo "[${Domain_Infos}_${REMOTE_PORT}_${PROTOCOL}]" >> ${Frpc_Conf_Path}
 echo "type = ${PROTOCOL}" >> ${Frpc_Conf_Path}
 

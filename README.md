@@ -50,7 +50,7 @@ docker run -d -i -t \
 ```
 
 
-In this case, the server is from "[**`Free FRP`**](https://freefrp.net/)", you can [**get `servers` from the site**](https://freefrp.net/).
+In these case, the server is from "[**`Free FRP`**](https://freefrp.net/)", you can [**get `servers` from the site**](https://freefrp.net/).
 <br>
 <br>
 
@@ -71,6 +71,7 @@ If `PROTOCOL` environment variable is "`unix_domain_socket`", your should set `R
 <br>
 
 For some examples:
+<br>
 <br>
 TCP forward:
 ```

@@ -16,7 +16,7 @@ Docker for setup websites, using [**frp**](https://gofrp.org/).
 <br>
 <br>
 
-2. Run ngrok_Docker:
+2. Run frp_Docker:
 
 ```
 docker run -d -i -t \

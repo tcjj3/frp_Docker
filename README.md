@@ -134,7 +134,7 @@ docker run -d -i -t \
 <br>
 
 
-Finally, the port "`7400`" in the container is the "`frp client admin HTTP UI`" of frp (the login username and password are both `admin` by default), you can find your "`tunnel remote address`" in this page (such as **http://127.0.0.1:7400/**). If you don't need this port, just remove the `7400 port forward` argument.
+Finally, the port "`7400`" in the container is the "`frp client admin HTTP UI`" of frp (the login `username` and `password` are both "`admin`" by default), you can find your "`tunnel remote address`" in this page (such as **http://127.0.0.1:7400/**). If you don't need this port, just remove the `7400 port forward` argument.
 
 
 

@@ -52,6 +52,7 @@ docker run -d -i -t \
 In these case, the server is from "[**`Free FRP`**](https://freefrp.net/)", you can [**get `servers` from the site**](https://freefrp.net/).
 <br>
 <br>
+<br>
 
 The `PROTOCOL` environment variable is "`http`" (or can be "`httponly`", "`https`", "`https2http`", "`tcp`", "`udp`" or "`unix_domain_socket`").
 <br>
@@ -86,7 +87,7 @@ TCP forward:
 ```
 docker run -d -i -t \
  --restart always \
- --name=frp_website \
+ --name=frp_tcp \
  -e SERVER_ADDR=frp.freefrp.net \
  -e SERVER_PORT=7000 \
  -e TOKEN=freefrp.net \
@@ -102,7 +103,7 @@ UDP froward:
 ```
 docker run -d -i -t \
  --restart always \
- --name=frp_website \
+ --name=frp_udp \
  -e SERVER_ADDR=frp.freefrp.net \
  -e SERVER_PORT=7000 \
  -e TOKEN=freefrp.net \
@@ -118,7 +119,7 @@ unix_domain_socket froward:
 ```
 docker run -d -i -t \
  --restart always \
- --name=frp_website \
+ --name=frp_unix_domain_socket \
  -e SERVER_ADDR=frp.freefrp.net \
  -e SERVER_PORT=7000 \
  -e TOKEN=freefrp.net \

@@ -55,7 +55,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
 
 
 
-ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
+ENTRYPOINT ["bash", "-c", "/opt/entrypoint.sh"]
 
 
 

@@ -29,6 +29,8 @@ docker run -d -i -t \
  -e SUBDOMAIN=test \
  -e LOCAL_IP=192.168.1.1 \
  -e LOCAL_PORT=80 \
+ -e ADMIN_USER="admin" \
+ -e ADMIN_PWD="admin" \
  -p 7400:7400 \
  tcjj3/frp_docker:latest
 ```
@@ -44,6 +46,8 @@ docker run -d -i -t \
  -e CUSTOM_DOMAINS=test.example.com \
  -e LOCAL_IP=192.168.1.1 \
  -e LOCAL_PORT=80 \
+ -e ADMIN_USER="admin" \
+ -e ADMIN_PWD="admin" \
  -p 7400:7400 \
  tcjj3/frp_docker:latest
 ```
@@ -95,6 +99,8 @@ docker run -d -i -t \
  -e LOCAL_IP=192.168.1.1 \
  -e LOCAL_PORT=80 \
  -e REMOTE_PORT=6000 \
+ -e ADMIN_USER="admin" \
+ -e ADMIN_PWD="admin" \
  -p 7400:7400 \
  tcjj3/frp_docker:latest
 ```
@@ -111,6 +117,8 @@ docker run -d -i -t \
  -e LOCAL_IP=192.168.1.1 \
  -e LOCAL_PORT=53 \
  -e REMOTE_PORT=6000 \
+ -e ADMIN_USER="admin" \
+ -e ADMIN_PWD="admin" \
  -p 7400:7400 \
  tcjj3/frp_docker:latest
 ```
@@ -127,6 +135,8 @@ docker run -d -i -t \
  -e REMOTE_PORT=6000 \
  -e UNIX_PATH=/var/run/docker.sock \
  -v /var/run/docker.sock:/var/run/docker.sock \
+ -e ADMIN_USER="admin" \
+ -e ADMIN_PWD="admin" \
  -p 7400:7400 \
  tcjj3/frp_docker:latest
 ```
@@ -134,7 +144,7 @@ docker run -d -i -t \
 <br>
 
 
-Finally, the port "`7400`" in the container is the "`frp client admin HTTP UI`" of frp (the login `username` and `password` are both "`admin`" by default), you can find your "`tunnel remote address`" in this page (such as **http://127.0.0.1:7400/**). If you don't need this port, just remove the `7400 port forward` argument.
+Finally, the port "`7400`" in the container is the "`frp client admin HTTP UI`" of frp (the login `username` and `password` are both "`admin`" by default, you can change them by modify the "`ADMIN_USER`" or "`ADMIN_PWD`" environment variable), you can find your "`tunnel remote address`" in this page (such as **http://127.0.0.1:7400/**). If you don't need this port, just remove the `7400 port forward` argument.
 
 
 

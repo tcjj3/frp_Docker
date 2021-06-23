@@ -31,6 +31,17 @@ if [ ! -z "$SUBDOMAIN" ] || [ ! -z "$CUSTOM_DOMAINS" ]; then
 
 
 
+if [ -z "$ADMIN_USER" ]; then
+ADMIN_USER="admin"
+fi
+
+if [ -z "$ADMIN_PWD" ]; then
+ADMIN_PWD="admin"
+fi
+
+
+
+
 
 
 echo "" > ${Frpc_Conf_Path}
@@ -43,8 +54,8 @@ echo "" >> ${Frpc_Conf_Path}
 
 echo "admin_addr = 0.0.0.0" >> ${Frpc_Conf_Path}
 echo "admin_port = 7400" >> ${Frpc_Conf_Path}
-echo "admin_user = admin" >> ${Frpc_Conf_Path}
-echo "admin_pwd = admin" >> ${Frpc_Conf_Path}
+echo "admin_user = ${ADMIN_USER}" >> ${Frpc_Conf_Path}
+echo "admin_pwd = ${ADMIN_PWD}" >> ${Frpc_Conf_Path}
 echo "" >> ${Frpc_Conf_Path}
 
 echo "login_fail_exit = false" >> ${Frpc_Conf_Path}

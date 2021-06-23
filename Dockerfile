@@ -14,6 +14,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && apt-get install --no-install-recommends -y wget \
                                                 ca-certificates \
                                                 curl \
+                                                jq \
                                                 unzip \
                                                 procps \
                                                 psmisc \
@@ -25,18 +26,22 @@ RUN export DIR_TMP="$(mktemp -d)" \
         ARCH=$(dpkg --print-architecture); \
      fi \
   && cd ${DIR_TMP} \
-  && curl -L -o ${DIR_TMP}/frp_linux.tar.gz https://github.com/fatedier/frp/releases/download/v0.36.2/frp_0.36.2_linux_${ARCH}.tar.gz \
-  && tar zxf ${DIR_TMP}/frp_linux.tar.gz -C ${DIR_TMP} \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frpc /usr/local/bin/frpc \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frps /usr/local/bin/frps \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frpc.ini /usr/local/bin/frpc.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frps.ini /usr/local/bin/frps.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frpc_full.ini /usr/local/bin/frpc_full.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frps_full.ini /usr/local/bin/frps_full.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frpc.ini /frpc.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frps.ini /frps.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frpc_full.ini /frpc_full.ini \
-  && cp ${DIR_TMP}/frp_0.36.2_linux_amd64/frps_full.ini /frps_full.ini \
+  && FRP_URL=`curl -s https://api.github.com/repos/fatedier/frp/releases/latest | jq -r ".assets[] | select(.name | test(\"linux_${ARCH}\")) | .browser_download_url"` \
+  && curl -L -o ${DIR_TMP}/linux_frp.tar.gz "${FRP_URL}" \
+  && tar zxf ${DIR_TMP}/linux_frp.tar.gz -C ${DIR_TMP} \
+  && cd ${DIR_TMP}/frp_* \
+  && cp frpc /usr/local/bin/frpc \
+  && cp frps /usr/local/bin/frps \
+  && cp frpc.ini /usr/local/bin/frpc.ini \
+  && cp frps.ini /usr/local/bin/frps.ini \
+  && cp frpc_full.ini /usr/local/bin/frpc_full.ini \
+  && cp frps_full.ini /usr/local/bin/frps_full.ini \
+  && cp frpc.ini /frpc.ini \
+  && cp frps.ini /frps.ini \
+  && cp frpc_full.ini /frpc_full.ini \
+  && cp frps_full.ini /frps_full.ini \
+  && cd .. \
+  && cd ${DIR_TMP} \
   && curl -L -o ${DIR_TMP}/frp.freefrp.net.zip https://freefrp.net/down/frp.freefrp.net.zip \
   && unzip -o ${DIR_TMP}/frp.freefrp.net.zip -d ${DIR_TMP} \
   && cp ${DIR_TMP}/frp.freefrp.net/frp.freefrp.net.cer /usr/local/bin/frp.freefrp.net.cer \
